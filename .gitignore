@@ -148,4 +148,4 @@ static
 
 sandbox.py
 .DS_Store
-.sqlite3
+*.sqlite3
