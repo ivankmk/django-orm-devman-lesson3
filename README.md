@@ -15,9 +15,19 @@ First step is to load all necessary functions:
 ```from scripts import fix_marks, remove_chastisements, create_commendation```
 
 Then, you can run fuctions:
+
 ```fix_marks('Калинина Марфа')```
 output:
 ```263 оценок исправлено для ученика Калинина Марфа.```
+
+```remove_chastisements(full_name)```
+output:
+```Удалены все замечания для ученика Калинина Марфа.'```
+
+```create_commendation('Калинина Марфа', 'Музыка')```
+output:
+```Похвала для Калинина Марфа - добавлена.```
+
 
 # Notes
 The code is written for educational purposes - this is a lesson in the Python and web development course at [Devman] (https://dvmn.org).

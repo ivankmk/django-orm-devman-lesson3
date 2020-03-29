@@ -53,6 +53,7 @@ def create_commendation(full_name, subject):
         schoolkid=schoolkid,
         subject=latest_lesson.subject,
         teacher=latest_lesson.teacher)
+    print('Похвала для {} - добавлена.'.format(full_name))
 
 
 if __name__ == "__main__":
