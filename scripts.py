@@ -5,10 +5,6 @@ from datacenter.commendations import commendations
 import random
 
 
-def get_random_commendation():
-    return random.choice(commendations)
-
-
 def get_schoolkid(full_name):
     try:
         schoolkid = Schoolkid.objects.get(full_name__contains=full_name)
@@ -25,11 +21,9 @@ def fix_marks(full_name):
     schoolkid = get_schoolkid(full_name)
     bad_marks = Mark.objects.filter(
         points__in=[2, 3], schoolkid=schoolkid)
-    i = 0
-    for bad_mark in bad_marks:
+    for i, bad_mark in enumerate(bad_marks, 1):
         bad_mark.points = 5
         bad_mark.save()
-        i += 1
     print('{} оценок исправлено для ученика {}.'.format(i, full_name))
 
 
@@ -47,13 +41,20 @@ def create_commendation(full_name, subject):
         year_of_study=schoolkid.year_of_study,
         group_letter=schoolkid.group_letter,
         subject__title=subject).order_by('date')[0]
-    Commendation.objects.create(
-        text=get_random_commendation(),
-        created=latest_lesson.date,
-        schoolkid=schoolkid,
-        subject=latest_lesson.subject,
-        teacher=latest_lesson.teacher)
-    print('Похвала для {} - добавлена.'.format(full_name))
+    if not Commendation.objects.filter(created=latest_lesson.date,
+                                       schoolkid=schoolkid,
+                                       subject=latest_lesson.subject,
+                                       teacher=latest_lesson.teacher):
+        Commendation.objects.create(
+            text=random.choice(commendations),
+            created=latest_lesson.date,
+            schoolkid=schoolkid,
+            subject=latest_lesson.subject,
+            teacher=latest_lesson.teacher)
+        print('Похвала для {} - добавлена.'.format(full_name))
+    else:
+        print('Похоже, что похвала для последнего урока {} - уже есть.'.format(
+            subject))
 
 
 if __name__ == "__main__":

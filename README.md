@@ -1,12 +1,25 @@
 # How to adjust school journal
 
-```fix_marks(full_name)``` - based on input name, function replacing 2 or 3 point degree with 5;
-```remove_chastisements(full_name)```  - based on input name, removing all assigned chastisements;
-```create_commendation(full_name, subject)``` - based on input name and desired subject, script is adding the random commendation into the last lesson;
+```python
+fix_marks(full_name)
+```
+- based on the input name, function will replace point 2 or 3 with 5;
 
-If script couldn't locate inserted name, or the name is assigned to multiply rows, respected alerts will be printed. 
+```python
+remove_chastisements(full_name)
+```  
+- based on the input name, all assigned chastisements will be removed;
 
-Interaction with the script via Django shell:
+
+```python
+create_commendation(full_name, subject)
+``` 
+- based on the input name and desired subject, script will add the random commendation into the last lesson;
+
+If script couldn't locate the inserted name, or the name was assigned to multiply rows, respected alerts will be printed. 
+
+To interact with the script could be used Django shell:
+
 ```python manage.py shell```
 
 # Examples
@@ -16,15 +29,23 @@ First step is to load all necessary functions:
 
 Then, you can run fuctions:
 
-```fix_marks('Калинина Марфа')```
+```python
+fix_marks('Калинина Марфа')
+```
 output:
 ```263 оценок исправлено для ученика Калинина Марфа.```
 
-```remove_chastisements(full_name)```
-output:
-```Удалены все замечания для ученика Калинина Марфа.'```
 
-```create_commendation('Калинина Марфа', 'Музыка')```
+```python
+remove_chastisements(full_name)
+```
+output:
+```Удалены все замечания для ученика Калинина Марфа.```
+
+```python
+create_commendation('Калинина Марфа', 'Музыка')
+```
+
 output:
 ```Похвала для Калинина Марфа - добавлена.```
 
