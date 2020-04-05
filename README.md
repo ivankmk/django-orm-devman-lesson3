@@ -51,4 +51,4 @@ output:
 
 
 # Notes
-The code is written for educational purposes - this is a lesson in the Python and web development course at [Devman] (https://dvmn.org).
+The code is written for educational purposes - this is a lesson in the Python and web development course at [Devman](https://dvmn.org).
