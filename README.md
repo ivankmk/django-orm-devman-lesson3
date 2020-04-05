@@ -1,3 +1,6 @@
+# Purpose of the script
+To have an ability to adjust the assingment grades, remove chastisements and create commendation in the school journal.
+
 # How to adjust school journal
 
 ```python
