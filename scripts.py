@@ -40,7 +40,7 @@ def create_commendation(full_name, subject):
     latest_lesson = Lesson.objects.filter(
         year_of_study=schoolkid.year_of_study,
         group_letter=schoolkid.group_letter,
-        subject__title=subject).order_by('date')[0]
+        subject__title=subject).order_by('-date')[0]
     if not Commendation.objects.filter(created=latest_lesson.date,
                                        schoolkid=schoolkid,
                                        subject=latest_lesson.subject,
