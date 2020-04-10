@@ -51,10 +51,10 @@ def create_commendation(full_name, subject):
             schoolkid=schoolkid,
             subject=latest_lesson.subject,
             teacher=latest_lesson.teacher)
-        print('Похвала для {} - добавлена.'.format(full_name))
-    else:
-        print('Похоже, что похвала для последнего урока {} - уже есть.'.format(
-            subject))
+        return 'Похвала для {} - добавлена.'.format(full_name)
+
+    return 'Похоже, что похвала для последнего урока {} - уже есть.'.format(
+        subject)
 
 
 if __name__ == "__main__":
